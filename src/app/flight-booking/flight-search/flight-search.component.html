@@ -5,11 +5,14 @@
   </div>
   <div class="content">
   
-  <form #f="ngForm">
+  <form #f="ngForm" roundTrip>
+
+        <div>{{ f.errors | json }}</div>
+
   
       <div class="form-group">
           <label>From:</label>
-          <input [(ngModel)]="from" name="from" required minlength="3" maxlength="30" pattern="\w*" city class="form-control">
+          <input (focus)="gotFocus('docu')" [(ngModel)]="from" name="from" required minlength="3" maxlength="30" pattern="\w*" [city]="['Graz', 'Hamburg', 'Andritz', 'Weiz']" class="form-control">
 
             <div *ngIf="!f?.controls['from']?.valid">
                 ... Fehler ...
@@ -28,8 +31,30 @@
       </div>
       <div class="form-group">
           <label>To:</label>
-          <input [(ngModel)]="to" name="to" class="form-control">
+          <input (focus)="gotFocus(null)" [(ngModel)]="to" minlength="3" asyncCity name="to" class="form-control">
+          <div *ngIf="f?.controls['to']?.hasError('asyncCity')">
+            ... asyncCity ...
+          </div>
+          <div>
+              {{f?.controls['to']?.errors | json}}
+          </div>
+          <div *ngIf="f?.controls['to']?.pending">
+            <marquee>
+                Validiere
+            </marquee>      
+          </div>
+  
+        </div>
+
+      <div class="form-group">
+
+        <mat-form-field>
+            <input matInput type="number" placeholder="Font size (px)" min="10">
+        </mat-form-field>
+
       </div>
+
+      
   
       <div class="form-group">
           <button 
@@ -87,4 +112,6 @@
 
 
     </div>
+
+    <flight-edit></flight-edit>
   

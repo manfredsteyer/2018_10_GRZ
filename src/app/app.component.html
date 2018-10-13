@@ -9,10 +9,12 @@
 
       <div class="content">
           
-        <flight-search></flight-search>
-
-        
-
+        <div class="col-sm-9">
+          <router-outlet></router-outlet>
+        </div>
+        <div class="col-sm-3">
+          <router-outlet name="aux"></router-outlet>
+        </div>
       </div>
 
   </div>

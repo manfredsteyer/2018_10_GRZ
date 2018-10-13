@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="header">
+    <h2 class="title">Flight Edit</h2>
+  </div>
+  <div class="content">
+
+    <form [formGroup]="formGroup">
+      <input formControlName="id">
+      <input formControlName="from">
+      <input formControlName="to">
+      <input formControlName="date">
+
+      <div>
+        {{formGroup.controls['from'].errors | json}}
+      </div>
+    </form>
+
+  </div>
+
+</div>

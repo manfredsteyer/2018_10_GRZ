@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DefaultFlightService } from './../default-flight.service';
 import { Component, OnInit } from '@angular/core';
 import { Flight } from '../../entities/flight';
@@ -28,11 +29,17 @@ export class FlightSearchComponent implements OnInit {
   // private http: HttpClient;
 
   constructor(
+    private router: Router,
     private flightService: FlightService) {
     //this.http = http;
   }
 
   ngOnInit() {
+  }
+
+
+  gotFocus(info) {
+    this.router.navigate([{outlets: {aux: info}}]);
   }
 
   search(): void {

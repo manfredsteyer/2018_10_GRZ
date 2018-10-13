@@ -10,25 +10,41 @@
     </div>
     <ul class="nav">
         <li>
-            <a>
+            <a routerLink="/home">
                 <i class="ti-home"></i>
                 <p>Home</p>
             </a>
         </li>
 
         <li>
-            <a>
+            <a routerLink="flight-booking/flight-search">
                 <i class="ti-arrow-top-right"></i>
-                <p>Flights</p>
+                <p>Flight Booking</p>
+            </a>
+        </li>
+
+
+        <li>
+            <a routerLink="about">
+                <i class="ti-user"></i>
+                <p>About</p>
             </a>
         </li>
 
         <li>
-            <a>
-                <i class="ti-user"></i>
-                <p>Passengers</p>
-            </a>
+                <a [routerLink]="{outlets: {aux: 'docu'}}">
+                    <i class="ti-shopping-cart"></i>
+                    <p>Docu</p>
+                </a>
         </li>
+        <li>
+                <a [routerLink]="{outlets: {aux: null}}">
+                    <i class="ti-shopping-cart"></i>
+                    <p>Nix Docu</p>
+                </a>
+        </li>
+    
+
             <!--
             <li routerLinkActive="active">
             <a>
