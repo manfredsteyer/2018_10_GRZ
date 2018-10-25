@@ -15,6 +15,13 @@ export const APP_ROUTES: Routes = [
         component: HomeComponent
     },
     {
+        path: 'flight-booking',
+        loadChildren: './flight-booking/flight-booking.module#FlightBookingModule',
+        data: {
+            preload: false
+        }
+    },
+    {
         path: 'docu',
         component: DocuComponent,
         outlet: 'aux'

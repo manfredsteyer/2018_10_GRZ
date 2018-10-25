@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import { CityDirective } from './city.directive';
 import { RoundTripDirective } from './round-trip.directive';
 import { AsyncCityDirective } from './async-city.directive';
+import { NumericValueAccessorDirective } from './numeric-value-accessor.directive';
 
 @NgModule({
    imports: [
@@ -13,13 +14,15 @@ import { AsyncCityDirective } from './async-city.directive';
       CityPipe,
       CityDirective,
       RoundTripDirective,
-      AsyncCityDirective
+      AsyncCityDirective,
+      NumericValueAccessorDirective
    ],
    exports: [
       CityPipe,
       CityDirective,
       RoundTripDirective,
-      AsyncCityDirective
+      AsyncCityDirective,
+      NumericValueAccessorDirective
    ]
 })
 export class SharedModule {

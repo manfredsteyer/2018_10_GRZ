@@ -22,6 +22,8 @@ let DEBUG = true;
   deps: [HttpClient, BASE_URL]
 })
 export abstract class FlightService {
+  
+  abstract findById(id: string): Observable<Flight>;
   abstract find(from: string, to: string): Observable<Flight[]>;
 }
 

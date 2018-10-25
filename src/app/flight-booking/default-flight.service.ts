@@ -20,12 +20,20 @@ export class DefaultFlightService implements FlightService {
     return this.http.get<Flight[]>(url, { headers, params });
   }
 
+  findById(id: string): Observable<Flight> {
+    const url = this.baseUrl + '/flight';
+    const params = new HttpParams().set('id', id);
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http.get<Flight>(url, { headers, params });
+  }
 }
 
 
 
 @Injectable()
 export class DummyFlightService implements FlightService {
+
 
   constructor(private http: HttpClient) { }
 
@@ -37,4 +45,9 @@ export class DummyFlightService implements FlightService {
     ]);
   }
 
+  findById(id: string): Observable<Flight> {
+    return of(
+      { id: 17, from: 'Graz', to: 'Andritz', date: '2018-10-01T17:00+02:00'},
+    );
+  }
 }

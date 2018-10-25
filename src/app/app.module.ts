@@ -10,17 +10,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { DocuComponent } from './docu/docu.component';
+import { CustomPreloadingStrategy } from './shared/custom-preloading-strategy.service';
 
 @NgModule({
    imports: [
       BrowserModule,
       HttpClientModule,
-      FlightBookingModule,
+
+      // FlightBookingModule, // would prevent lazy loading!
+      
       BrowserAnimationsModule,
       MatFormFieldModule,
-      RouterModule.forRoot(APP_ROUTES, /*useHash */)
+      RouterModule.forRoot(APP_ROUTES, { preloadingStrategy: CustomPreloadingStrategy})
+      
    ],
    declarations: [
        DocuComponent,

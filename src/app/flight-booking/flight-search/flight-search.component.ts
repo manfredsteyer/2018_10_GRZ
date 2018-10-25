@@ -21,6 +21,8 @@ export class FlightSearchComponent implements OnInit {
 
   cityFormat: string = 'long';
 
+  num: number = 9999;
+
   basket: object = {
     "3": true,
     "5": true

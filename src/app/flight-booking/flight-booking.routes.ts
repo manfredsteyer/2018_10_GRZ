@@ -4,11 +4,12 @@ import { Routes } from '@angular/router';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
 import { FlightBookingComponent } from './flight-booking.component';
 import { AuthGuard } from '../shared/auth.guard';
+import { FlightResolver } from './flight-edit/flight.resolver';
 
 export const FLIGHT_BOOKING_ROUTES: Routes = [
     {
         // flight-booking/flight-search
-        path: 'flight-booking',
+        path: '',
         component: FlightBookingComponent,
         children: [
             {
@@ -22,7 +23,10 @@ export const FLIGHT_BOOKING_ROUTES: Routes = [
             },
             {
                 path: 'flight-edit/:id',
-                component: FlightEditComponent
+                component: FlightEditComponent,
+                resolve: {
+                    flight: FlightResolver
+                }
             }
         ]
     },

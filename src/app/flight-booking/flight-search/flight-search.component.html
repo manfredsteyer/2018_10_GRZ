@@ -49,7 +49,8 @@
       <div class="form-group">
 
         <mat-form-field>
-            <input matInput type="number" placeholder="Font size (px)" min="10">
+            <input matInput type="fnumber" name="num" [(ngModel)]="num" placeholder="Font size (px)" min="10">
+            {{ num }}
         </mat-form-field>
 
       </div>
@@ -112,6 +113,3 @@
 
 
     </div>
-
-    <flight-edit></flight-edit>
-  
